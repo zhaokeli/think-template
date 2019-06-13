@@ -111,9 +111,13 @@ class Template
      * @param  mixed $value
      * @return $this
      */
-    public function assign(array $vars = [])
+    public function assign($key, $vars = null)
     {
-        $this->data = array_merge($this->data, $vars);
+        if (is_array($key)) {
+            $this->data = array_merge($this->data, $key);
+        } else {
+            $this->data[$key] = $vars;
+        }
         return $this;
     }
 
@@ -184,7 +188,7 @@ class Template
      * @param  array     $vars 模板变量
      * @return void
      */
-    public function fetch(string $template, array $vars = []): void
+    public function fetch(string $template, array $vars = []): string
     {
         if ($vars) {
             $this->data = array_merge($this->data, $vars);
@@ -211,8 +215,10 @@ class Template
             // 获取并清空缓存
             $content = ob_get_clean();
 
-            echo $content;
+            // echo $content;
+            return $content;
         }
+        return '';
     }
 
     /**
