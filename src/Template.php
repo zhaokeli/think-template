@@ -1158,7 +1158,7 @@ class Template
      * @param  string $template 文件名
      * @return string|false
      */
-    private function parseTemplateFile(string $template): string
+    protected function parseTemplateFile(string $template): string
     {
         if ('' == pathinfo($template, PATHINFO_EXTENSION)) {
             if (strpos($template, '@')) {
