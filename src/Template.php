@@ -32,7 +32,7 @@ class Template
      * @var array
      */
     protected $config = [
-        'view_path'          => '', // 模板路径
+        'view_path'          => [], // 模板路径
         'view_base'          => '',
         'view_suffix'        => 'html', // 默认模板文件后缀
         'view_depr'          => DIRECTORY_SEPARATOR,
